@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo - Felipe Campos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #000000;
+      --secondary-color: #1a1a1a;
+      --accent-color: #ffffff;
+      --highlight: #00ff9d;
+      --text-primary: #f0f0f0;
+      --text-secondary: #a0a0a0;
+      --card-bg: #1e1e1e;
+      --box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--primary-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Efeito de partículas no fundo */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    
+    header {
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      color: var(--accent-color);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    header h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    header p {
+      font-size: 1.4em;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      color: var(--text-secondary);
+    }
+    
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: linear-gradient(45deg, var(--secondary-color), #2a2a2a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--highlight);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+      color: var(--highlight);
+    }
+    
+    .profile-img i {
+      font-size: 70px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background-color: var(--highlight);
+      color: var(--primary-color);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      margin: 5px;
+      font-weight: 600;
+    }
+    
+    nav {
+      background-color: rgba(26, 26, 26, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    nav ul li {
+      margin: 0;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 500;
+      padding: 18px 22px;
+      display: block;
+      transition: var(--transition);
+      position: relative;
+      font-size: 0.95em;
+      letter-spacing: 1px;
+    }
+    
+    nav ul li a:hover {
+      color: var(--highlight);
+    }
+    
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: var(--highlight);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+    
+    nav ul li a:hover::after {
+      width: 70%;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: var(--secondary-color);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .section {
+      margin-bottom: 40px;
+      position: relative;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 15px;
+    }
+    
+    .section-icon {
+      background-color: var(--highlight);
+      color: var(--primary-color);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+    
+    h2 {
+      color: var(--accent-color);
+      margin-bottom: 0;
+      display: inline-block;
+      font-size: 1.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    h3 {
+      color: var(--highlight);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .skill-item {
+      background-color: var(--card-bg);
+      color: var(--text-primary);
+      padding: 10px 18px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .skill-item:hover {
+      background-color: var(--highlight);
+      color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.2);
+    }
+    
+    .skill-item i {
+      margin-right: 8px;
+    }
+    
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .project-card {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--highlight);
+      transition: var(--transition);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    
+    .project-card:hover::before {
+      width: 8px;
+      background-color: var(--highlight);
+    }
+    
+    .project-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.3em;
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-card h3 i {
+      margin-right: 10px;
+    }
+    
+    .project-card p {
+      color: var(--text-secondary);
+    }
+    
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 30px;
+      border-left: 2px solid var(--highlight);
+    }
+    
+    .timeline-item {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--highlight);
+      border: 2px solid var(--secondary-color);
+      box-shadow: 0 0 0 3px var(--highlight);
+    }
+    
+    .timeline-item h3 {
+      color: var(--accent-color);
+      margin-bottom: 5px;
+    }
+    
+    .timeline-item .date {
+      color: var(--highlight);
+      font-size: 0.9em;
+      margin-bottom: 8px;
+      display: block;
+      font-style: italic;
+    }
+    
+    .contact-list {
+      list-style: none;
+    }
+    
+    .contact-list li {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-list i {
+      width: 35px;
+      height: 35px;
+      background-color: var(--highlight);
+      color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.1em;
+    }
+    
+    .contact-list a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .contact-list a:hover {
+      color: var(--highlight);
+    }
+    
+    footer {
+      background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+      color: var(--text-primary);
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .social-links {
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      border-radius: 50%;
+      margin: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1.2em;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--highlight);
+      color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--highlight), #00cc7a);
+      border-radius: 4px;
+    }
+    
+    .language-item {
+      margin-bottom: 15px;
+    }
+    
+    .certificate-item {
+      margin-bottom: 15px;
+      padding-left: 20px;
+      border-left: 3px solid var(--highlight);
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      
+      header p {
+        font-size: 1.1em;
+      }
+      
+      nav ul li {
+        width: 50%;
+        text-align: center;
+      }
+      
+      .container {
+        padding: 25px;
+      }
+      
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      nav ul li {
+        width: 100%;
+      }
+      
+      .profile-img {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .profile-img i {
+        font-size: 50px;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .section-icon {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Efeito de partículas no fundo -->
+  <div id="particles-js"></div>
+
+<header>
+  <div class="header-content">
+    <div class="profile-img">
+      <i class="fas fa-user-tie"></i>
+    </div>
+    <h1>Felipe Petronio</h1>
+    <p>Analista de Suporte | Especialista em Infraestrutura de TI</p>
+    <div>
+      <span class="badge"><i class="fas fa-network-wired"></i> Redes de Computadores</span>
+      <span class="badge"><i class="fas fa-shield-alt"></i> Segurança da Informação</span>
+      <span class="badge"><i class="fas fa-code"></i> Desenvolvimento</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#sobre"><i class="fas fa-user"></i> Sobre</a></li>
+    <li><a href="#experiencia"><i class="fas fa-briefcase"></i> Experiência</a></li>
+    <li><a href="#formacao"><i class="fas fa-graduation-cap"></i> Formação</a></li>
+    <li><a href="#habilidades"><i class="fas fa-tools"></i> Habilidades</a></li>
+    <li><a href="#projetos"><i class="fas fa-project-diagram"></i> Projetos</a></li>
+    <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <div id="sobre" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-user"></i>
+      </div>
+      <h2>Sobre</h2>
+    </div>
+    <p>Profissional de TI com experiência em suporte técnico, infraestrutura de redes e desenvolvimento de sistemas. Atuo como Analista de Suporte com foco em administração de sistemas, virtualização VMware, administração de servidores Windows e Linux, e segurança de redes.</p>
+  </div>
+
+  <div id="experiencia" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-briefcase"></i>
+      </div>
+      <h2>Experiência Profissional</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Suporte Tecnico</h3>
+        <span class="date"><i class="far fa-calendar-alt"></i> 2025 - Presente | MAPA</span>
+        <p>Atuação na administração de sistemas, virtualização com VMware, administração de servidores Windows e Linux, gestão de backups, monitoramento de redes e suporte técnico especializado.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Auxiliar de TI</h3>
+        <span class="date"><i class="far fa-calendar-alt"></i> 2023 - 2025 | Grupo Jdemito</span>
+        <p>Suporte técnico em TI, manutenção de computadores, instalação de software e configuração de equipamentos de rede.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="formacao" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h2>Formação Acadêmica</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Curso Superior, Redes de Computadores</h3>
+        <span class="date"><i class="far fa-calendar-alt"></i> 2024 - 2027 | UNIASSELVI</span>
+        <p>Formação completa em Redes de Computadores com foco em infraestrutura, segurança e administração de sistemas.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Curso Técnico, Desenvolvimento de Sistemas</h3>
+        <span class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026 | SENAC</span>
+        <p>Formação técnica com ênfase em programação, banco de dados e desenvolvimento de aplicações.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="habilidades" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-tools"></i>
+      </div>
+      <h2>Habilidades Técnicas</h2>
+    </div>
+    
+    <h3>Redes e Infraestrutura</h3>
+    <div class="skills">
+      <div class="skill-item"><i class="fas fa-network-wired"></i> Redes TCP/IP</div>
+      <div class="skill-item"><i class="fas fa-server"></i> VMware vSphere</div>
+      <div class="skill-item"><i class="fas fa-shield-alt"></i> Segurança de Rede</div>
+      <div class="skill-item"><i class="fas fa-wifi"></i> Wireless</div>
+    </div>
+    
+    <h3>Sistemas Operacionais</h3>
+    <div class="skills">
+      <div class="skill-item"><i class="fab fa-windows"></i> Windows Server</div>
+      <div class="skill-item"><i class="fab fa-linux"></i> Linux</div>
+      <div class="skill-item"><i class="fab fa-ubuntu"></i> Ubuntu Server</div>
+    </div>
+    
+    <h3>Desenvolvimento</h3>
+    <div class="skills">
+      <div class="skill-item"><i class="fab fa-html5"></i> HTML/CSS</div>
+      <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+      <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+    </div>
+  </div>
+
+  <div id="projetos" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-project-diagram"></i>
+      </div>
+      <h2>Projetos</h2>
+    </div>
+    <div class="projects">
+      <div class="project-card">
+        <h3><i class="fab fa-whatsapp"></i> Bot de WhatsApp</h3>
+        <p>Desenvolvimento de bot para WhatsApp utilizando Node.js, com funcionalidades de envio de mensagens automáticas e integração com sistemas.</p>
+      </div>
+      <div class="project-card">
+        <h3><i class="fas fa-server"></i> Virtualização de Servidores</h3>
+        <p>Implantação de ambiente virtualizado com VMware vSphere para consolidação de servidores e redução de custos com hardware.</p>
+      </div>
+      <div class="project-card">
+        <h3><i class="fas fa-shield-alt"></i> Implementação de Firewall</h3>
+        <p>Migração de solução de firewall com configuração de políticas de segurança, VPN e filtro de conteúdo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="contato" class="section">
+    <div class="section-header">
+      <div class="section-icon">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <h2>Contato</h2>
+    </div>
+    <ul class="contact-list">
+      <li>
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:felipepetronio8@gmail.com">felipepetronio8@gmail.com</a>
+      </li>
+      <li>
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/felipepetronio/" target="_blank">linkedin.com/in/felipepetronio</a>
+      </li>
+      <li>
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/felipepetronio" target="_blank">github.com/felipepetronio</a>
+      </li>
+      <li>
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Cuiabá, Mato Grosso</span>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="social-links">
+    <a href="mailto:felipepetronio8@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/felipepetronio/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/felipepetronio" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+  <p>© 2023 Felipe Petronio. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  // Efeito de partículas no fundo
+  document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles-js';
+    document.body.prepend(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    const numberOfParticles = 80;
+    
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `rgba(255, 255, 255, ${Math.random() * 0.2})`;
+      }
+      
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        if (this.x > canvas.width || this.x < 0) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y > canvas.height || this.y < 0) {
+          this.speedY = -this.speedY;
+        }
+      }
+      
+      draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+    
+    function init() {
+      particles = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        particles.push(new Particle());
+      }
+    }
+    
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        
+        for (let j = i; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 100) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 - distance/1000})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      
+      requestAnimationFrame(animate);
+    }
+    
+    init();
+    animate();
+    
+    window.addEventListener('resize', function() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+  });
+</script>
+
+</body>
+</html>
